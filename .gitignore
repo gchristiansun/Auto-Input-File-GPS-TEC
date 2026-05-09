@@ -11,7 +11,6 @@ runGPS.bat
 vcruntime140.dll
 ZIPLOG
 zlibwapi.dll
-.gitignore
 
 # Ignore folder
 DATA GPS/
