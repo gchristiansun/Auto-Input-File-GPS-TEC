@@ -1,0 +1,16 @@
+# Ignore file
+download.py
+GPS_TEC Readme.pdf
+GPS_TEC.exe
+GPS_TEC.ini
+libcurl.dll
+mfc140.dll
+msvcp140.dll
+run.vbs
+runGPS.bat
+vcruntime140.dll
+ZIPLOG
+zlibwapi.dll
+
+# Ignore folder
+DATA GPS/
