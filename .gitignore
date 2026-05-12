@@ -11,6 +11,8 @@ runGPS.bat
 vcruntime140.dll
 ZIPLOG
 zlibwapi.dll
+test.js
+test.py
 
 # Ignore folder
 DATA GPS/

@@ -21,11 +21,39 @@ if not exist "%TEMP_EXTRACT%" mkdir "%TEMP_EXTRACT%"
 
 :LOOP
 
-@REM Ekstrak ZIP
-for %%z in ("%ROOT%\*.zip") do (
-    findstr /x /c:"%%~nxz" "%ZIPLOG%" >nul
+@REM @REM Ekstrak ZIP
+@REM for %%z in ("%ROOT%\*.zip") do (
+@REM     findstr /x /c:"%%~nxz" "%ZIPLOG%" >nul
+
+@REM     if errorlevel 1 (
+@REM         echo Extracting %%~nxz ...
+
+@REM         rmdir /s /q "%TEMP_EXTRACT%" 2>nul
+@REM         mkdir "%TEMP_EXTRACT%"
+@REM         attrib +h "%TEMP_EXTRACT%"
+
+@REM         powershell -command ^
+@REM         "Expand-Archive -LiteralPath '%%z' -DestinationPath '%TEMP_EXTRACT%' -Force"
+
+@REM         @REM Ambil file dari folder rinex
+@REM         for /r "%TEMP_EXTRACT%" %%r in (*.??o) do (
+@REM             if /i "%%~pr" neq "" (
+@REM                 echo Copying %%~nxr ...
+@REM                 copy /y "%%r" "%FOLDER%\" >nul
+@REM             )
+@REM         )
+
+@REM         echo %%~nxz>>"%ZIPLOG%"
+@REM     )
+@REM )
+
+@REM Ekstrak semua ZIP di semua folder
+for /r "%ROOT%" %%z in (*.zip) do (
+
+    findstr /x /c:"%%~fz" "%ZIPLOG%" >nul
 
     if errorlevel 1 (
+
         echo Extracting %%~nxz ...
 
         rmdir /s /q "%TEMP_EXTRACT%" 2>nul
@@ -35,15 +63,14 @@ for %%z in ("%ROOT%\*.zip") do (
         powershell -command ^
         "Expand-Archive -LiteralPath '%%z' -DestinationPath '%TEMP_EXTRACT%' -Force"
 
-        @REM Ambil file dari folder rinex
+        @REM Ambil file RINEX hasil extract
         for /r "%TEMP_EXTRACT%" %%r in (*.??o) do (
-            if /i "%%~pr" neq "" (
-                echo Copying %%~nxr ...
-                copy /y "%%r" "%FOLDER%\" >nul
-            )
+
+            echo Copying %%~nxr ...
+            copy /y "%%r" "%FOLDER%\" >nul
         )
 
-        echo %%~nxz>>"%ZIPLOG%"
+        echo %%~fz>>"%ZIPLOG%"
     )
 )
 
