@@ -100,13 +100,15 @@ for %%f in ("%FOLDER%\*.??o") do (
 
         @REM start "" /min /wait "%APP%" %%f auto
 
-        call "%APP%" %%f auto
+        @REM call "%APP%" %%f auto
+
+        start "" /wait "%APP%" %%f auto
 
         timeout /t 2 >nul
 
         @REM Pindahkan file output ke folder yang sesuai
-        move /y "%FOLDER%\*.std" "!outdir!\" >nul 2>&1
-        move /y "%FOLDER%\*.cmn" "!outdir!\" >nul 2>&1
+        move /y "%FOLDER%\!loc!*.std" "!outdir!\" >nul 2>&1
+        move /y "%FOLDER%\!loc!*.cmn" "!outdir!\" >nul 2>&1
 
         echo %%~nxf>>"%LOG%"
     )
