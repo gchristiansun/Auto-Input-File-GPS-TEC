@@ -13,6 +13,8 @@ ZIPLOG
 zlibwapi.dll
 test.js
 test.py
+.env
+__pycache__/
 
 # Ignore folder
 DATA GPS/
