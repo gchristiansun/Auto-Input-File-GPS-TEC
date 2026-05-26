@@ -114,7 +114,7 @@ for %%f in ("%FOLDER%\*.??o") do (
     )
 )
 
-timeout /t 60 /nobreak 
+timeout /t 1 /nobreak 
 cls
 
 goto LOOP

@@ -6,7 +6,8 @@ from config import (
     LOGIN_URL,
     DOWNLOAD_URL,
     HEADERS,
-    ZIP_DOWNLOAD_URL
+    ZIP_DOWNLOAD_URL,
+    directory
 )
 
 from auth.login import login
@@ -14,8 +15,8 @@ from auth.login import login
 from downloader.rinex import download_rinex
 
 
-EMAIL = ""
-PASSWORD = ""
+EMAIL = "christian10rks@gmail.com"
+PASSWORD = "17Des#/%"
 
 
 def main():
@@ -39,6 +40,11 @@ def main():
     stations = [
         "bako",
         "cang",
+        "cbik",
+        "cdnp",
+        "samp",
+        "cbda",
+        "cmak"
     ]
 
     for station in stations:
@@ -50,7 +56,8 @@ def main():
             station,
             doy,
             year,
-            ZIP_DOWNLOAD_URL
+            ZIP_DOWNLOAD_URL,
+            directory
         )
 
 

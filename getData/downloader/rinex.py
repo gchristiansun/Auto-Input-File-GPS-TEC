@@ -11,7 +11,8 @@ def download_rinex(
     station,
     doy,
     year,
-    url_download
+    url_download,
+    directory
 ):
 
     payload, filename = build_payload(
@@ -65,7 +66,9 @@ def download_rinex(
 
     if zip_res.status_code == 200:
 
-        with open(zip_name, "wb") as f:
+        save_path = directory + zip_name
+
+        with open(save_path, "wb") as f:
             f.write(zip_res.content)
 
         print("ZIP saved:", zip_name)

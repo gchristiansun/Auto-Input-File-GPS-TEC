@@ -18,3 +18,5 @@ HEADERS = {
     "referer": f"{BASE_URL}/rinex/v1/carts",
     "accept": "application/grpc-web-text"
 }
+
+directory = "E:/rinex/"
