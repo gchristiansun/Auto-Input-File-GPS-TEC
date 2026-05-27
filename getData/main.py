@@ -1,5 +1,9 @@
 import requests
+import os
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from config import (
     LOGIN_URL,
@@ -14,8 +18,8 @@ from auth.login import login
 from downloader.rinex import download_rinex
 
 
-EMAIL = "christian10rks@gmail.com"
-PASSWORD = "17Des#/%"
+EMAIL = os.getenv("EMAIL")
+PASSWORD = os.getenv("PASSWORD")
 
 
 def main():
