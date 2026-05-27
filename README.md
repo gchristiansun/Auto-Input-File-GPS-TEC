@@ -1,4 +1,4 @@
-# GPS_Gopi_v3.5
+# Auto Input Data Rinex
 
 Proyek ini adalah sebuah utilitas Python untuk mengunduh file RINEX dari layanan SRGI (Badan Informasi Geospasial Indonesia) menggunakan akun terdaftar. Proyek ini terletak di folder `getData` dan menggunakan sesi HTTP untuk login dan mengambil file ZIP dari server.
 
